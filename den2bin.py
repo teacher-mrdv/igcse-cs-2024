@@ -1,8 +1,8 @@
 # denary to binary
-denary = int( input('Enter an integer >= 0: ') )
 # we need to use a string '' or "" so that we can prepend
 # the binary digit (aka read the modulos backwards)
 binary = ''			# '' is an empty string
+denary = int( input('Enter an integer >= 0: ') )
 # validation: range
 while denary < 0:
     denary = int( input('Error. Enter an integer >= 0: ') )
