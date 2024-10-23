@@ -4,13 +4,14 @@ b = int(input('B = '))
 x = a
 y = b
 
-while x != y:
+while not (x == y):	# or x != y ; != means not equal to
     if x > y:
         x = x-y
-    if y>x:
+    if y > x:
         y = y-x
+#    print(x, y)
 hcf = x
 
 print(f'HCF of {a} and {b} = {hcf}')
-lcm = (a*b) / hcf
+lcm = (a*b) // hcf
 print(f'LCM of {a} and {b} = {lcm}')
