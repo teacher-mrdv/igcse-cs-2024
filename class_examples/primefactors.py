@@ -1,4 +1,4 @@
-a = int(input('Enter a number to factorise: '))
+a = int(input('Enter a number: '))
 for i in range(2, a+1):
     if a % i == 0:
         prime = True
