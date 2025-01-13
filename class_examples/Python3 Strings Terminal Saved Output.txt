@@ -1,0 +1,241 @@
+╭─ofs at OFS-FVFXKHGWHV29 in ~/python 25-01-08 - 9:37:32
+╰─○ python3
+Python 3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:39) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> s = "10"
+>>> t = '5'
+>>> 10+5
+15
+>>> a=10
+>>> b=5
+>>> a+b
+15
+>>> s+t
+'105'
+>>> s='Hola'
+>>> times = 5
+>>> s+t
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 't' is not defined
+>>> s+times
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate str (not "int") to str
+>>> s * times
+'HolaHolaHolaHolaHola'
+>>> s = 'Hola '
+>>> s * times
+'Hola Hola Hola Hola Hola '
+>>> s * 5.5
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'float'
+>>> times * s
+'Hola Hola Hola Hola Hola '
+>>> s * s
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> s = 'Hola\n'
+>>> s
+'Hola\n'
+>>> times * s
+'Hola\nHola\nHola\nHola\nHola\n'
+>>> print s
+  File "<stdin>", line 1
+    print s
+    ^^^^^^^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+>>> 
+>>> print(s)
+Hola
+
+>>> print(s*times)
+Hola
+Hola
+Hola
+Hola
+Hola
+
+>>> s = '\nChao\n'
+>>> s
+'\nChao\n'
+>>> print(s)
+
+Chao
+
+>>> print(s*times)
+
+Chao
+
+Chao
+
+Chao
+
+Chao
+
+Chao
+
+>>> pet = 'Marcos's cat'
+  File "<stdin>", line 1
+    pet = 'Marcos's cat'
+                  ^
+SyntaxError: invalid syntax
+>>> pet = "Marcos's cat"
+>>> pet
+"Marcos's cat"
+>>> pet = 'Marcos's "cat"'
+  File "<stdin>", line 1
+    pet = 'Marcos's "cat"'
+                  ^
+SyntaxError: invalid syntax
+>>> pet = 'Marcos\'s "cat"'
+>>> pet
+'Marcos\'s "cat"'
+
+>>> print(pet)
+Marcos's "cat"
+>>> pet = "Marcos's \"cat\""
+>>> print(pet)
+Marcos's "cat"
+>>> action="run/walk"
+>>> action
+'run/walk'
+>>> x='10/35'
+>>> x
+'10/35'
+>>> xx=10/35
+>>> xx
+0.2857142857142857
+>>> xx=10%35
+>>> xx
+10
+>>> x='10%35'
+>>> x
+'10%35'
+>>> 30/10
+3.0
+>>> 30//10
+3
+>>> x * times
+'10%3510%3510%3510%3510%35'
+>>> x * times * times
+'10%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%35'
+>>> x * times * times * x
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> times * times * x
+'10%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%3510%35'
+>>> (x * times) * (times * x)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> (x * times) + (times * x)
+'10%3510%3510%3510%3510%3510%3510%3510%3510%3510%35'
+>>> x*times
+'10%3510%3510%3510%3510%35'
+>>> (x * times) * 2
+'10%3510%3510%3510%3510%3510%3510%3510%3510%3510%35'
+>>> (x * times) ** 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'int'
+>>> name = "James Bond"
+>>> name[0]
+'J'
+>>> name[6]
+'B'
+>>> name[0]+name[6]
+'JB'
+>>> name[6:9]
+'Bon'
+>>> name[6:10]
+'Bond'
+>>> name[6:]
+'Bond'
+>>> name[:6]
+'James '
+>>> name[:5]
+'James'
+>>> name[-4]
+'B'
+>>> name[-4:]
+'Bond'
+>>> name[:-5]
+'James'
+>>> """hola
+como
+estan?"""
+'hola\ncomo\nestan?'
+>>> print("""hola
+como
+estan?""")
+hola
+como
+estan?
+>>> s = "10090"
+>>> len(s)
+5
+>>> num=10090
+>>> len( str(num) )
+5
+>>> len( num )
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: object of type 'int' has no len()
+>>> word='hello this guy'
+>>> word.capitalize()
+'Hello this guy'
+>>> lala.capitalize()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lala' is not defined
+>>> num = 'om nom nom'   # num was int, but the variable can be reassigned, even with another data type
+>>> num
+'om nom nom'
+>>> word.title()
+'Hello This Guy'
+>>> for c in word:
+...     print(c)
+... 
+h
+e
+l
+l
+o
+ 
+t
+h
+i
+s
+ 
+g
+u
+y
+>>> 'x' in word
+False
+>>> 'y' in word
+True
+>>> 'Hello'.find('H')    # returns the index/position of a character or substring inside another string
+0
+>>> 'Hello'.find('o')
+4
+>>> 'Hello'.find('l')
+2
+>>> 'Hello'.find('l')
+2
+>>> 'Hello'.find('y')    # -1 means 'y' is NOT in 'Hello'
+-1
+>>> string="hello"
+>>> string[string.index('l')]
+'l'
+>>> string[string.index('l'):]
+'llo'
+>>> string[string.index('l')+1:]
+'lo'
+>>> string[string.index('l')+1:].index('l')
+0
+>>> 
