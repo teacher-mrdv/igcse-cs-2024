@@ -3,8 +3,10 @@
 # to guess a word in 5 tries, similar to the basics of hangman
 # you will NEED to code your solution using methods/functions 'def'
 # you may want to refer to the Python online documentation (Thonny uses Python 3.10),
-# Python in a Nutshell
-#
+# Think Python: How to Think Like a Computer Scientist 2nd edition and Python in a Nutshell
+# AIs like chatGPT are not recommended as this is a problem exercise for your brain.
+##
+
 # secret = input('Enter secret word/phrase: ')
 secret = 'parallel'		# we use this for quick testing
 secret_length = len(secret)
