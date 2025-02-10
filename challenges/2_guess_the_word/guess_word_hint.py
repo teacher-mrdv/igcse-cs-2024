@@ -1,3 +1,4 @@
+@@ -1,25 +0,0 @@
 ##
 # this code is a hint to help you with the challenge of coding a simple game
 # to guess a word in 5 tries, similar to the basics of hangman
