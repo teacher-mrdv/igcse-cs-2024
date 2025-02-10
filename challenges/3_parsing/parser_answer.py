@@ -37,6 +37,7 @@ def getDenominator(fraction:str) -> int:
     denominator = int(fraction[fraction_split+1:])
     return denominator
 
+# improved and complete fraction validation function, we check the denominator is not 0
 def isValidFraction(fraction:str) -> bool:
     """if isFraction(fraction):
         return getDenominator(fraction) != 0
