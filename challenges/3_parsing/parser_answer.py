@@ -47,6 +47,8 @@ def isValidFraction(fraction:str) -> bool:
 def isCoords(coordinates:str) -> bool:
     coordinates = coordinates.replace(' ', '')
     coordinate_split:int = coordinates.find(',')
+    if coordinate_split == -1:
+        return False
     x:str = coordinates[:coordinate_split]
     y:str = coordinates[coordinate_split+1:]
     return isFloat(x) and isFloat(y)
