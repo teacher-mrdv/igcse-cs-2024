@@ -44,6 +44,3 @@ sfs = 4
 print( round_off(x, sfs) )
 print( round_off(24.077, 3) )
 
-
-
-
