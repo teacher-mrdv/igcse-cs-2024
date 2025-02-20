@@ -50,7 +50,7 @@ if 0 in numbersList:		# easy way to check if an element is in the list
 print('\nStats:')
 print(numbersList)
 print(f'Maximum = {maximum(numbersList):.{precision}f}')
-#print(f'Minimum = {minimum(numbersList):.2f}')		# the number of decimals can also...
-#print(f'Average = {average(numbersList):.{precision}f}')
+#print(f'Minimum = {minimum(numbersList):.{precision}f}')
+#print(f'Average = {average(numbersList):.2f}')		# the number of decimals can also...
 #print(f'Range   = {range(numbersList):.2f}')		# be hard-coded with a literal (number)
 
