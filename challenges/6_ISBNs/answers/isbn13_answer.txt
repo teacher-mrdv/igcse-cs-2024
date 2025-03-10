@@ -1,0 +1,92 @@
+/////////////////////////////////////////////////////
+// IGCSE Pseudocode to input and validate ISBN-13 //
+// REMEMBER that indices start at 1 in IGCSE...  //
+// pseudocode, while they start with 0 in Python//
+/////////////////////////////////////////////////
+
+// Input: ISBN-13 number as a string
+FUNCTION ValidateISBN13(ISBN :STRING) RETURNS INTEGER
+    DECLARE Sum, Digit, CheckDigit, i, Weight, Remainder, LastDigit : INTEGER
+    
+    FOR i ← 1 TO 12
+        Digit ← STRING_TO_INT(SUBSTRING(ISBN, i, 1))
+        IF i MOD 2 = 1
+	  THEN
+            Weight ← 1
+          ELSE
+            Weight ← 3
+        ENDIF
+        Sum ← Sum + (Digit * Weight)
+    NEXT i
+    
+    Remainder ← Sum MOD 10
+    IF Sum MOD 10 = 0
+      THEN
+        CheckDigit ← 0
+      ELSE
+        CheckDigit ← 10 - remainder
+    ENDIF
+
+    LastDigit ←  STRING_TO_INT(SUBSTRING(ISBN, 13, 1))
+    IF CheckDigit = LastDigit
+      THEN
+	RETURN TRUE
+      ELSE
+	RETURN FALSE
+    ENDIF
+    // or... RETURN CheckDigit = LastDigit
+ENDFUNCTION
+
+// Finds the position of a character in a string
+// equivalent to InputString.find(Character) in Python
+FUNCTION FIND_CHARACTER(InputString, Character)
+    FOR i <- 1 TO LENGTH(InputString) DO
+        IF SUBSTRING(InputString, i, 1) = Character
+          THEN
+            RETURN i
+        END IF
+    END FOR
+    RETURN -1 // Character not found
+END FUNCTION
+
+// Replaces all occurrences of OriginalChar to NewChar
+// Creates NewString based on OriginalString with the replacements done
+// Similar to str.replace(old, new) in Python
+FUNCTION REPLACE(OriginalString, OriginalChar, NewChar)
+    DECLARE NewString : STRING
+    FOR i = 1 TO LENGTH(OriginalString)
+        IF SUBSTRING(OriginalString, i, 1) = OriginalChar
+          THEN
+            NewString = NewString + NewChar
+          ELSE
+            NewString = NewString + SUBSTRING(OriginalString, i, 1)
+        ENDIF
+    NEXT i
+    RETURN NewString
+END FUNCTION
+
+
+
+// "Main" -----------------------------------------------------------------------
+DECLARE isbn : STRING
+DECLARE Number, CheckDigit : INTEGER
+
+REPEAT
+    INPUT isbn
+    IF FIND_CHARACTER(isbn, "-") <> -1
+      THEN
+        isbn <- REPLACE(isbn, "-", "") // remove dashes
+    END IF
+UNTIL LENGTH(isbn) = 13 AND ISNUMERIC(isbn)
+// assume ISNUMERIC(string) behaves like isbn.isnumeric() in Python,
+// i.e. returns true if the string can be converted to an int/has only numbers
+
+Number <- CONVERT_TO_INTEGER( SUBSTRING(isbn, 1, LENGTH(isbn)-1) )
+CheckDigit <- CONVERT_TO_INTEGER( SUBSTRING(isbn, LENGTH(isbn)-1, LENGTH(isbn)) )
+
+IF VALIDATE_ISBN13(isbn)
+  THEN
+    OUTPUT "Valid ISBN-13!"
+  ELSE
+    OUTPUT "INVALID ISBN-13"
+ENDIF
