@@ -78,7 +78,7 @@ REPEAT
         isbn <- REPLACE(isbn, "-", "") // remove dashes
     END IF
 UNTIL LENGTH(isbn) = 13 AND ISNUMERIC(isbn)
-// assume ISNUMERIC(string) behaves like isbn.isnumeric() in Python,
+// assume ISNUMERIC(isbn) behaves like isbn.isnumeric() in Python,
 // i.e. returns true if the string can be converted to an int/has only numbers
 
 Number <- CONVERT_TO_INTEGER( SUBSTRING(isbn, 1, LENGTH(isbn)-1) )
