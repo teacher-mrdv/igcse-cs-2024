@@ -3,7 +3,7 @@
 # suggested Python answer, version 2
 #
 
-def is_valid_isbn13(isbn :str) -> bool:
+def is_valid_isbn13(isbn: str) -> bool:
 	# remove dashes, if any found
 	if find_character(isbn, '-') != -1:
 		isbn = replace_character(isbn, '-', '')
@@ -13,12 +13,12 @@ def is_valid_isbn13(isbn :str) -> bool:
 		return False
 
 	# Initialize variables
-	suma   :int = 0
-	weight :int = 1
+	suma: int = 0
+	weight: int = 1
 	
 	# Iterate through the first 12 digits
 	for i in range(12):
-		digit :int = int(isbn[i])
+		digit: int = int(isbn[i])
 		if (i + 1) % 2 == 0:
 			# Set the weight of the digit to 3 to multiply even-indexed digits by 3
 			weight = 3
@@ -48,7 +48,7 @@ def find_character(input_string :str, character :str) -> int:
 	return -1  # Character not found
 
 
-def replace_character(original_string :str, original_char :str, new_char :str) -> str:
+def replace_character(original_string: str, original_char: str, new_char: str) -> str:
 	new_string = ''
 	for i in range(len(original_string)):
 		if original_string[i] == original_char[0]:
