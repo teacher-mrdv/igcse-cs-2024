@@ -1,0 +1,8 @@
+Programming challenge #8
+Palindromes
+
+1. Write a method that takes a string as a parameter, and returns True if the string is a palindrome (reads the same backwards and forwards), False otherwise.
+
+2. Write a method that takes a integer as a parameter, and returns True if the string is a palindrome (reads the same backwards and forwards), False otherwise. For this challenge, DO NOT USE STRINGS,i.e. do it using only arithmetical operations.
+
+
