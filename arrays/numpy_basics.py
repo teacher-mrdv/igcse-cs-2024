@@ -32,8 +32,8 @@ print( f'Length (shape)    = {array1D.shape}')
 print()
 
 
-# pseudocode:    DECLARE array2D : ARRAY[0:2, 0:3] OF INTEGER
-# Python    :    full(shape, fill_value, dtype=None): Return a new array of given shape and type, filled with `fill_value`. shape = lengths, eg. 2 columns, 5 rows
+# pseudocode:    DECLARE array2D : ARRAY[0:1, 0:3] OF INTEGER
+# Python    :    full(shape, fill_value, dtype=None): Return a new array of given shape and type, filled with `fill_value`. shape = lengths, eg. 2 columns, 4 rows
 array2D = np.full( (2, 4), 0, dtype = int)
 print( array2D )
 print( type(array2D) )
