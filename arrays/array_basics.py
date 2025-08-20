@@ -5,7 +5,9 @@
 # and initialises the array with the given 'initialValue'
 # the data type of the array will match the data type of 'initialValue'
 def createArray(length, initialValue) -> list:
-    temp = [initialValue] * length
+    temp: list = []
+    for times in range(length):
+        temp.append(initialValue)
     return temp
 
 def inputElements(array):
@@ -64,3 +66,30 @@ print( minimum(randomNumbers) )
 # task 7b: print the number of vowels of the words in the array 'randomWords'
 
 
+
+
+### EXPECTED OUTPUT
+#
+# >>> %Run array_basics.py
+# Array = [0, 0, 0, 0, 0]    length = 5
+# Enter element 0: 1
+# ['1', 0, 0, 0, 0]
+# Enter element 1: 2
+# ['1', '2', 0, 0, 0]
+# Enter element 2: 3
+# ['1', '2', '3', 0, 0]
+# Enter element 3: 4
+# ['1', '2', '3', '4', 0]
+# Enter element 4: 5
+# ['1', '2', '3', '4', '5']
+# ['1', '2', '3', '4', '5']
+# 52
+# 1    <- this output depends on which integer you input first as element index 0
+# 62
+# 25
+# 27
+# 1
+# 4
+# 21
+#
+###
