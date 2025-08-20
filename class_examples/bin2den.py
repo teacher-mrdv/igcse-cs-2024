@@ -1,5 +1,5 @@
-denary = 0
-valid_binary = False # so that we go into the loop at least once!
+denary:int = 0
+valid_binary:bool = False # so that we go into the loop at least once!
 while not valid_binary:
     # we use a string for binary so we can use the for loop later
     # to go through each bit
