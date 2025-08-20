@@ -42,7 +42,7 @@ randomNumbers = [95, 11, 39, 43, 55, 9, 61, 79, 21, 6, 19, 64, 51, 25, 93, 33, 9
 randomWords   = ['sector', 'paper', 'clothes', 'percentage', 'magazine', 'hotel', 'county', 'effort', 'map']
 # DECLARE arr1d : ARRAY[0:4] OF INTEGER
 arr1d = createArray(5, 0)
-print(f'Array = {arr1d}    length = {len(arr1d)})
+print(f'Array = {arr1d}    length = {len(arr1d)}')
 inputElements(arr1d)
 print(arr1d)
 # task 0: print the length of the 'randomNumbers' array (Python list)
