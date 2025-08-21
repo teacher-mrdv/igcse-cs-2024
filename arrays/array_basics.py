@@ -42,15 +42,15 @@ randomNumbers = [95, 11, 39, 43, 55, 9, 61, 79, 21, 6, 19, 64, 51, 25, 93, 33, 9
 randomWords   = ['sector', 'paper', 'clothes', 'percentage', 'magazine', 'hotel', 'county', 'effort', 'map']
 # DECLARE arr1d : ARRAY[0:4] OF INTEGER
 arr1d = createArray(5, 0)
-print(f'Array = {arr1d}    length = {len(arr1d)}')
+print(f'Array = {arr1d}    length = {len(arr1d)})
 inputElements(arr1d)
 print(arr1d)
 # task 0: print the length of the 'randomNumbers' array (Python list)
-
+print(len(randomNumbers))
 # task 1: print the first element of arr1d
-
+print(arr1d[0])
 # task 2: print the last element of the 'randomNumbers' array, without using a literal (number) for the index. Use your knowledge from task 0.
-
+print(randomWords[ len(randomWords)-1] ) # when the index starts from zero
 # task 3:
 print( evens(randomNumbers) )
 
