@@ -11,7 +11,7 @@ while not valid_binary:
     for bit in binary:
         if bit != '0' and bit != '1' and bit != ' ':
             valid_binary = False
-            print('Error - input is not a binary number! Please input again.')
+            print('Error - input is not a binary number! Please input again.)
             break
             # no point checking anymore if one digit isn't binary
         #end if
