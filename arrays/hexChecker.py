@@ -3,7 +3,8 @@ def isHex(hexNumber: str) -> bool:
     for index1 in range(len(hexNumber)):
         if not(hexNumber[index1] in hexDigits):
             return False
-    return True 
+    return True
+
 
 number: str = input('Input a number in hexadecimal base: ').upper()
 message: str = 'Error'
