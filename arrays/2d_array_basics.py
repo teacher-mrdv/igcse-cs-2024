@@ -31,10 +31,18 @@ def printArray(array):
 # Task 0: complete this method so that it prints a specific ROW from an array
 # make sure to validate the given row as it has to be < the number of rows
 def printRow(array: list, rowIndex:int):
-
+    rowLength:int = len(array)
+    if rowIndex >= rowLength:
+        return None
+    columnLength:int = len(array[rowIndex])
+    #for colIndex in range(columnLength):
+        #print(array[rowIndex][colIndex], end=' ')
+    print(array[rowIndex])
+    print()
 
 
 # DECLARE arr2d : ARRAY[0:1, 0:3] OF INTEGER
+
 arr2d = create2DArray(2, 4, 0)
 print(arr2d)
 print()
@@ -48,9 +56,9 @@ printArray(another2dArray)
 columnLen = len(another2dArray[0])
 rowLen    = len(another2dArray)
 print(f'\nlength of rows = {rowLen}')
-print(f'length of each column = {columnLen}')
+print(f'length of each column = {columnLen}\n')
 # Use the printRow function to print column #2 or another2dArray
-
+printRow(another2dArray, 2)
 # diagonal if array is square
 
 # mirror another2dArray
