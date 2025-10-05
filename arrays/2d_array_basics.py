@@ -8,6 +8,7 @@ def create2DArray(rows, columns) -> list:
     # best way to create a 2D array-like data structure in Python
     temp: list = [[0] * columns for _ in range(rows)]
     return temp
+
 def arraySize(array: list) -> int:
     rows: int = len(array)
     columns: int = len(array[0])
@@ -71,7 +72,33 @@ def printColumn(array: list, columnIndex:int):
         print(array[rowIndex][columnIndex], end=' ')
     print()
 
-# Task 3: complete this method so that it returns a copy of the input array...
+# Task 3: Write a method that it returns a copy of the input array, MIRRORED horizontally
+# i.e. invert the order of the rows. The only validation here is to make sure the array is not empty.
+def hMirror(array: list) -> list:
+    if len(array) <= 0:
+        return []
+    rows: int = len(array)
+    columns: int = len(array[0])
+    mirror: list = create2DArray(rows, columns)
+    for row in range(rows):
+        for column in range(columns):
+            mirror[rows-1-row][column] = array[row][column]
+    return mirror
+
+# Task 4: Write a method that it returns a copy of the input array, MIRRORED vertically this time
+# i.e. invert the order of the columns. The only validation here is to make sure the array is not empty.
+def vMirror(array: list) -> list:
+    if len(array) <= 0:
+        return []
+    rows: int = len(array)
+    columns: int = len(array[0])
+    mirror: list = create2DArray(rows, columns)
+    for row in range(rows):
+        for column in range(columns):
+            mirror[row][columns-1-column] = array[row][column]
+    return mirror
+
+# Task 5: complete this method so that it returns a copy of the input array...
 # ...TRANSPOSED (columns becomes rows, and rows become columns)
 # the only validation here is to make sure the array is not empty.
 def transpose(array: list) -> list:
@@ -85,32 +112,6 @@ def transpose(array: list) -> list:
         for column in range(originalColumns):
             transposed[column][row] = array[row][column]
     return transposed
-
-# Task 4: Write a method that it returns a copy of the input array, MIRRORED horizontally
-# i.e. invert the order of the columns. The only validation here is to make sure the array is not empty.
-def hMirror(array: list) -> list:
-    if len(array) <= 0:
-        return []
-    rows: int = len(array)
-    columns: int = len(array[0])
-    mirror: list = create2DArray(rows, columns)
-    for row in range(rows):
-        for column in range(columns):
-            mirror[rows-1-row][column] = array[row][column]
-    return mirror
-
-# Task 5: Write a method that it returns a copy of the input array, MIRRORED vertically this time
-# i.e. invert the order of the columns. The only validation here is to make sure the array is not empty.
-def vMirror(array: list) -> list:
-    if len(array) <= 0:
-        return []
-    rows: int = len(array)
-    columns: int = len(array[0])
-    mirror: list = create2DArray(rows, columns)
-    for row in range(rows):
-        for column in range(columns):
-            mirror[row][columns-1-column] = array[row][column]
-    return mirror
 
 #################################################################################
 # Main Method ###################################################################
