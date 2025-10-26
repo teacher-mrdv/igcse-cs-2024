@@ -6,10 +6,10 @@
 # (rows and columns), and initialises the array with 0s
 def create2DArray(rows, columns) -> list:
     # best way to create a 2D array-like data structure in Python
-    temp: list = [[0] * columns for _ in range(rows)]
+    temp: list = [[0] * columns for i in range(rows)]
     return temp
 
-def arraySize(array: list) -> int:
+def arraySize(array: list) -> list:
     rows: int = len(array)
     columns: int = len(array[0])
     size: list = []
