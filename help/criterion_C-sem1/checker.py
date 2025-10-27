@@ -51,5 +51,5 @@ arrayBad =  [ [1,0,1,1,0,0,1,0,0,0],
 
 print("Error-free test data:")
 printArray(arrayOK)
-print("Test data with error:")
+print("\n\nTest data with error:")
 printArray(arrayBad)
