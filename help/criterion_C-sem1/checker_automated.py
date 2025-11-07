@@ -103,7 +103,7 @@ def checkForError(binary: list) -> str:
     result: str = 'No error found'
     binary[6] = calculateParityBlock(binary)
     rowCheck: int = checkParityBit(binary)
-    columnCheck:int = checkParityBlock(binary)
+    columnCheck: int = checkParityBlock(binary)
     # check for parity bit errors in a row and column
     if rowCheck != -1 and columnCheck != -1:
         result = f'Error @ row {rowCheck} and column {columnCheck}'
