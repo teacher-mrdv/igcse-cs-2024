@@ -1,6 +1,6 @@
 ##
-# Python example code to showcase the BUBBLE SORTalgorithm
-# Note that these algorithms sort in ascending order
+# Python example code to showcase the BUBBLE SORT algorithm
+# Note that these algorithms sort in **ascending** order
 # * -> not part of the actual algorithm
 ##
 
