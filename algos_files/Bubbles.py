@@ -11,11 +11,11 @@ def bubble_sort1(array: list) -> list:
     for passes in range(len(array)):
         for index in range(len(array) - 1):
             if array[index] > array[index + 1]:
-                temp = array[index]         # swap
+                temp = array[index]         # start swapping
                 array[index] = array[index + 1]
-                array[index + 1] = temp
+                array[index + 1] = temp		# end swapping
                 swaps += 1                  # for testing purposes ONLY *
-                print('\t\tSwap:', array)        # for testing purposes ONLY *
+                print('\t\tSwap:', array)   # for testing purposes ONLY *
     print(f'\t< BUBBLE SORT #1 > Passes = {passes}, swaps = {swaps}') # for testing purposes ONLY *
     return array
 
@@ -27,15 +27,15 @@ def bubble_sort2(array: list) -> list:
                 temp = array[index]
                 array[index] = array[index + 1]
                 array[index + 1] = temp
-                swaps += 1              # for testing purposes ONLY *
-                print('\t\tSwap:', array)    # for testing purposes ONLY *
+                swaps += 1              	# for testing purposes ONLY *
+                print('\t\tSwap:', array)	# for testing purposes ONLY *
     print(f'\t< BUBBLE SORT #2 > Passes = {passes}, swaps = {swaps}')  # *
     return array
 
 def bubble_sort3(array: list) -> list:
-    swaps: int = 0  # for testing purposes ONLY *
+    swaps: int = 0		# for testing purposes ONLY *
+	passes: int = 0		# for testing purposes ONLY *
     swapped: bool = True
-    passes: int = 0
     while swapped:
         swapped = False
         index: int = 0
@@ -50,6 +50,31 @@ def bubble_sort3(array: list) -> list:
         passes += 1
     print(f'\t< BUBBLE SORT #3 > Passes = {passes}, swaps = {swaps}')  # *
     return array
+
+# function that looks for a key inside of and array
+# and returns the index of the key (first occurrence only if there are many),
+# or -1 (arbitrary rogue value) if the key is not found.
+# this is the linear search algorithm.
+def linear_search(array: list, key: int) -> int:
+    for index in range(len(array)):
+        if array[index] == key:
+            return index
+    return -1
+
+def search(array: list, key: int) -> None:
+    print(f'Looking for {key} in the array')
+    search_index: int = linear_search(to_sort, key)
+    if search_index != -1:
+        print(f'{key} found at index {search_index}')
+    else:
+        print(f'{key} was not found.')
+
+def count_evens(array: list) -> int:
+    count:int = 0
+    for index in range(len(array)):
+        if array[index] % 2 == 0:
+            count += 1
+    return count
 
 ### main section of our code
 #
@@ -108,4 +133,11 @@ print()
 print('\tRandomly sorted data set:', random_sorted)
 to_sort = copy.deepcopy(random_sorted)
 print('\tResult:', bubble_sort3(to_sort))
+
+print('\n<<< LINEAR SEARCH >>>')
+search(to_sort, 3)
+search(to_sort, 9)
+
+print('\n<<< LINEAR SEARCH + counting >>>')
+print(f'There are {count_evens(to_sort)} even numbers in the array')
 
