@@ -16,6 +16,7 @@ def bubble_sort1(array: list) -> list:
                 array[index + 1] = temp		# end swapping
                 swaps += 1                  # for testing purposes ONLY *
                 print('\t\tSwap:', array)   # for testing purposes ONLY *
+        print()
     print(f'\t< BUBBLE SORT #1 > Passes = {passes}, swaps = {swaps}') # for testing purposes ONLY *
     return array
 
@@ -29,12 +30,13 @@ def bubble_sort2(array: list) -> list:
                 array[index + 1] = temp
                 swaps += 1              	# for testing purposes ONLY *
                 print('\t\tSwap:', array)	# for testing purposes ONLY *
+        print()
     print(f'\t< BUBBLE SORT #2 > Passes = {passes}, swaps = {swaps}')  # *
     return array
 
 def bubble_sort3(array: list) -> list:
     swaps: int = 0		# for testing purposes ONLY *
-	passes: int = 0		# for testing purposes ONLY *
+    passes: int = 0		# for testing purposes ONLY *
     swapped: bool = True
     while swapped:
         swapped = False
@@ -48,6 +50,7 @@ def bubble_sort3(array: list) -> list:
                 swaps += 1              # for testing purposes ONLY *
                 print('\t\tSwap:', array)    # for testing purposes ONLY *
         passes += 1
+        print()
     print(f'\t< BUBBLE SORT #3 > Passes = {passes}, swaps = {swaps}')  # *
     return array
 
@@ -70,7 +73,7 @@ def search(array: list, key: int) -> None:
         print(f'{key} was not found.')
 
 def count_evens(array: list) -> int:
-    count:int = 0
+    count: int = 0
     for index in range(len(array)):
         if array[index] % 2 == 0:
             count += 1
