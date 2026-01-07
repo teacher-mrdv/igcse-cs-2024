@@ -1,0 +1,35 @@
+////
+//Python example code to showcase File input and output in Python,
+// as required by our IGCSE syllabus
+// The file is in CSV format, hbdata.csv, with the following headers/variables/data:
+// 0           1             2      3                      4   <---index
+// student_id, student_name, grade, homebase_teacher_name, homebase_room
+////
+
+// The following constants are for ease of use/accessing specific data
+CONSTANT StudentID <- 0
+CONSTANT StudentName <- 1
+CONSTANT Grade <- 2
+CONSTANT HomebaseTeacherName <- 3
+CONSTANT HomebaseRoom <- 4
+CONSTANT Rows <- 23
+CONSTANT Columns <- 5
+
+PROCEDURE PrintData(ArrayData : ARRAY[1:Rows, 1:Columns] OF STRING)
+    OUTPUT "STUDENT ID | STUDENT NAME      | GRADE | HOMEBASE TEACHER NAME | HOMEBASE ROOM"
+    FOR Row <- 1 TO Rows
+        FOR Column <- 1 to Column
+            PRINT ArrayData[Column], "\t"	// \t = tab character
+        NEXT Column
+        OUTPUT ""
+    NEXT Row
+ENDPROCEDURE
+
+FUNCTION ReadDataFromFile(FileName : STRING) RETURNS STRING // ARRAY[1:Rows, 1:Columns] OF STRING
+    DECLARE Line : STRING
+    OPENFILE (FileName) FOR READ
+    READFILE (FileName), Line
+    RETURN Line
+ENDFUNCTION
+
+OUTPUT ReadDataFromFile("homebases.csv")
