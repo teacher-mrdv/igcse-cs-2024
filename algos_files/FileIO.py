@@ -2,7 +2,7 @@
 # Python example code to showcase File input and output in Python,
 # as required by our IGCSE syllabus
 # The file is in CSV format, hbdata.csv, with the following headers/variables/data:
-# 0           1             2      3                      4
+# 0           1             2      3                      4   <---index
 # student_id, student_name, grade, homebase_teacher_name, homebase_room
 ##
 import copy		# to copy arrays easily--how would you copy 1D & 2D arrays manually?
@@ -48,7 +48,7 @@ def read_data(filename: str) -> list:			# read the contents of filename and stor
     with open(filename, 'r') as dataFile:		# open the file for reading operations
         for line in dataFile:
             line = line.rstrip()                # remove trailing whitespace[s] from the end of a string
-            parsed_data: list = line.split(',')       # splits each CSV line into a 2D array/list
+            parsed_data: list = line.split(',') # splits each CSV line into a 2D array/list
             data.append(parsed_data)
         data.pop(0)                             # remove the header of the CSV file
     #print_data(data)                           # optional, can be removed/commented out
