@@ -16,7 +16,7 @@ def bubble_sort1(array: list) -> list:
                 array[index + 1] = temp		# end swapping
                 swaps += 1                  # for testing purposes ONLY *
                 print('\t\tSwap:', array)   # for testing purposes ONLY *
-        print()
+        print('\tpass completed')
     print(f'\t< BUBBLE SORT #1 > Passes = {passes}, swaps = {swaps}') # for testing purposes ONLY *
     return array
 
@@ -30,7 +30,7 @@ def bubble_sort2(array: list) -> list:
                 array[index + 1] = temp
                 swaps += 1              	# for testing purposes ONLY *
                 print('\t\tSwap:', array)	# for testing purposes ONLY *
-        print()
+        print('\tpass completed')
     print(f'\t< BUBBLE SORT #2 > Passes = {passes}, swaps = {swaps}')  # *
     return array
 
@@ -50,7 +50,7 @@ def bubble_sort3(array: list) -> list:
                 swaps += 1              # for testing purposes ONLY *
                 print('\t\tSwap:', array)    # for testing purposes ONLY *
         passes += 1
-        print()
+        print('\tpass completed')
     print(f'\t< BUBBLE SORT #3 > Passes = {passes}, swaps = {swaps}')  # *
     return array
 
@@ -87,7 +87,7 @@ reversed_sorted: list = [5,4,3,2,1]
 random_sorted: list = [3,1,2,5,4]
 
 print('\n<<< BUBBLE SORT #1 >>>')
-print('\tSorted data set:', already_sorted)
+print('Sorted data set:', already_sorted)
 to_sort = copy.deepcopy(already_sorted)
 print('\tResult:', bubble_sort1(to_sort))
 print()
