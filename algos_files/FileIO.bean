@@ -1,35 +1,107 @@
-////
-//Python example code to showcase File input and output in Python,
+// //
+// Python example code to showcase File input and output in Python,
 // as required by our IGCSE syllabus
 // The file is in CSV format, hbdata.csv, with the following headers/variables/data:
 // 0           1             2      3                      4   <---index
 // student_id, student_name, grade, homebase_teacher_name, homebase_room
-////
-
+// //
 // The following constants are for ease of use/accessing specific data
-CONSTANT StudentID <- 0
-CONSTANT StudentName <- 1
-CONSTANT Grade <- 2
-CONSTANT HomebaseTeacherName <- 3
-CONSTANT HomebaseRoom <- 4
+CONSTANT StudentID <- 1
+CONSTANT StudentName <- 2
+CONSTANT Grade <- 3
+CONSTANT HomebaseTeacherName <- 4
+CONSTANT HomebaseRoom <- 5
 CONSTANT Rows <- 23
 CONSTANT Columns <- 5
 
-PROCEDURE PrintData(ArrayData : ARRAY[1:Rows, 1:Columns] OF STRING)
-    OUTPUT "STUDENT ID | STUDENT NAME      | GRADE | HOMEBASE TEACHER NAME | HOMEBASE ROOM"
+PROCEDURE PrintData(DataArray: ARRAY[1:Rows,1:Columns] OF STRING)
+    OUTPUT "STUD. ID | STUDENT NAME       | GRADE | HB TEACHER NAME | HB ROOM"
     FOR Row <- 1 TO Rows
-        FOR Column <- 1 to Column
-            PRINT ArrayData[Column], "\t"	// \t = tab character
+        FOR Column <- 1 TO Columns
+            PRINT DataArray[Row,Column], "\t" // \t = tab character
         NEXT Column
-        OUTPUT ""
     NEXT Row
 ENDPROCEDURE
+// Returns the length of this segment
+FUNCTION NextSegment(Src: STRING, Begin: INTEGER, Delim: CHAR) RETURNS INTEGER
+    FOR i <- Begin TO LENGTH(Src) + 1
+        IF i > LENGTH(Src)
+          THEN
+            RETURN i - Begin
+        ENDIF
 
-FUNCTION ReadDataFromFile(FileName : STRING) RETURNS STRING // ARRAY[1:Rows, 1:Columns] OF STRING
-    DECLARE Line : STRING
-    OPENFILE (FileName) FOR READ
-    READFILE (FileName), Line
-    RETURN Line
+        IF SUBSTRING(Src, i, 1) = Delim
+          THEN
+            RETURN i - Begin
+        ENDIF
+    NEXT i
 ENDFUNCTION
 
-OUTPUT ReadDataFromFile("homebases.csv")
+// Easons' algo
+FUNCTION Split(CSVLine: STRING) RETURNS ARRAY[1:Columns] OF STRING
+    DECLARE DataArray: ARRAY[1:Columns] OF STRING
+    DECLARE Segment: STRING
+    DECLARE Begin, Len, Last: INTEGER
+    Last <- 1
+    Begin <- 1
+
+    REPEAT
+        Len <- NextSegment(CSVLine, Begin, ',')
+        Segment <- SUBSTRING(CSVLine, Begin, Len)
+        DataArray[Last] <- Segment
+        Last <- Last + 1
+        Begin <- Begin + Len + 1
+    UNTIL Last > Columns
+
+    RETURN DataArray
+ENDFUNCTION
+
+FUNCTION ReadDataFromFile(FileName: STRING) RETURNS ARRAY[1:Rows,1:Columns] OF STRING
+    DECLARE Line: STRING
+    DECLARE SplitLine: ARRAY[1:Columns] OF STRING
+    DECLARE DataArray: ARRAY[1:Rows,1:Columns] OF STRING
+    OPENFILE(FileName) FOR READ
+    READFILE (FileName), Line	// read (and do nothing/discard) the header line of the CSV file
+    FOR Row <- 1 TO Rows
+        READFILE (FileName), Line
+
+        SplitLine <- Split(Line)
+        FOR SplitColumn <- 1 TO Columns
+            DataArray[Row,SplitColumn] <- SplitLine[SplitColumn]
+        NEXT SplitColumn
+    NEXT Row
+    CLOSEFILE(FileName)
+    RETURN DataArray
+ENDFUNCTION
+
+// does beancdoew pass parameters by reference?
+PROCEDURE BubbleSort(DataArray: ARRAY[1:Rows,1:Columns] OF STRING, Column: INTEGER)
+    DECLARE Swapped: BOOLEAN
+    DECLARE Passes: INTEGER
+    DECLARE Temp: STRING
+    Passes <- 1
+    Swapped <- TRUE
+    REPEAT
+        Swapped <- FALSE
+        FOR Index <- 1 TO (Rows - Passes)
+            // -1
+            IF DataArray[Index,Column] > DataArray[Index + 1,Column]
+              THEN
+                FOR Column <- 1 TO Columns
+                    Temp <- DataArray[Index,Column]
+                    DataArray[Index,Column] <- DataArray[Index + 1,Column]
+                    DataArray[Index + 1,Column] <- Temp
+                NEXT Column
+
+                Swapped <- TRUE
+            ENDIF
+        NEXT Index
+    UNTIL Swapped = FALSE
+ENDPROCEDURE
+
+DECLARE DataArray: ARRAY[1:Rows,1:Columns] OF STRING
+DataArray <- ReadDataFromFile("homebases.csv")
+
+CALL PrintData(DataArray)
+CALL BubbleSort(DataArray, Grade)
+CALL PrintData(DataArray)
