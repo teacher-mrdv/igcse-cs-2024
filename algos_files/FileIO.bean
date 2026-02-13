@@ -1,5 +1,5 @@
 // //
-// Python example code to showcase File input and output in Python,
+// IGCSE Pseudocode example code to showcase File input and output in Python,
 // as required by our IGCSE syllabus
 // The file is in CSV format, hbdata.csv, with the following headers/variables/data:
 // 0           1             2      3                      4   <---index
@@ -15,11 +15,15 @@ CONSTANT Rows <- 23
 CONSTANT Columns <- 5
 
 PROCEDURE PrintData(DataArray: ARRAY[1:Rows,1:Columns] OF STRING)
-    OUTPUT "STUD. ID | STUDENT NAME       | GRADE | HB TEACHER NAME | HB ROOM"
+    DECLARE DataLine : STRING
+    OUTPUT "ST. ID / STUDENT NAME / GRADE / HB TEACHER NAME / HB ROOM /"
     FOR Row <- 1 TO Rows
+        DataLine <- ""
         FOR Column <- 1 TO Columns
-            PRINT DataArray[Row,Column], "\t" // \t = tab character
+            DataLine <- DataLine + DataArray[Row,Column]
+            DataLine <- DataLine + " | "
         NEXT Column
+        OUTPUT SUBSTRING(DataLine, 1, LENGTH(DataLine)-4) // remove the trailing \n and " | "
     NEXT Row
 ENDPROCEDURE
 // Returns the length of this segment
@@ -59,12 +63,11 @@ ENDFUNCTION
 FUNCTION ReadDataFromFile(FileName: STRING) RETURNS ARRAY[1:Rows,1:Columns] OF STRING
     DECLARE Line: STRING
     DECLARE SplitLine: ARRAY[1:Columns] OF STRING
-    DECLARE DataArray: ARRAY[1:Rows,1:Columns] OF STRING
+    DECLARE DataArray: ARRAY[1:Rows, 1:Columns] OF STRING
     OPENFILE(FileName) FOR READ
     READFILE (FileName), Line	// read (and do nothing/discard) the header line of the CSV file
     FOR Row <- 1 TO Rows
         READFILE (FileName), Line
-
         SplitLine <- Split(Line)
         FOR SplitColumn <- 1 TO Columns
             DataArray[Row,SplitColumn] <- SplitLine[SplitColumn]
@@ -92,7 +95,6 @@ PROCEDURE BubbleSort(DataArray: ARRAY[1:Rows,1:Columns] OF STRING, Column: INTEG
                     DataArray[Index,Column] <- DataArray[Index + 1,Column]
                     DataArray[Index + 1,Column] <- Temp
                 NEXT Column
-
                 Swapped <- TRUE
             ENDIF
         NEXT Index
@@ -102,6 +104,11 @@ ENDPROCEDURE
 DECLARE DataArray: ARRAY[1:Rows,1:Columns] OF STRING
 DataArray <- ReadDataFromFile("homebases.csv")
 
+OUTPUT "Original CSV File contents"
 CALL PrintData(DataArray)
 CALL BubbleSort(DataArray, Grade)
+OUTPUT "\nSorted by grade"
 CALL PrintData(DataArray)
+OUTPUT "\nSorted by student name"
+
+OUTPUT "\nSorted by HB teacher"
