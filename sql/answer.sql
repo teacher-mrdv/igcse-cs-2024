@@ -18,7 +18,7 @@ CREATE TABLE HBTeacher (
 CREATE TABLE HBStudent (
     StudentID INTEGER NOT NULL,
     StudentName TEXT NOT NULL,
-    StudentGender CHAR NOT NULL,
+    StudentGender CHAR NOT NULL CHECK (StudentGender IN ('M', 'F')),
     Grade INTEGER NOT NULL CHECK (Grade BETWEEN 9 AND 12),
     TeacherID INTEGER NOT NULL,
     PRIMARY KEY(StudentID),
