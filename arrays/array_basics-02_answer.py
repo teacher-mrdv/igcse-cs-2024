@@ -11,7 +11,7 @@ def createArray(length, initialValue) -> list:
     temp: list = [initialValue] * length
     return temp
 
-# function to populate the array 'array'. 'array' should have already been initialised with the desired length
+# function to populate the array 'array'. 'array' should have already been initialised with the desired length (using the createArray method)
 def inputElements(array):
     for index in range(len(array)):
         print(f'Enter element {index}: ', end='') 
