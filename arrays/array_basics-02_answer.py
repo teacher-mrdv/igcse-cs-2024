@@ -116,7 +116,7 @@ print(countVowels(randomWords[3]))
 # task 7b: print the total number of vowels of the all the words in the array 'randomWords'
 print(allVowels(randomWords))
 
-### EXPECTED OUTPUT
+# EXPECTED OUTPUT
 #
 # >>> %Run array_basics-02.py
 # Array = [0, 0, 0, 0, 0]    length = 5
@@ -140,4 +140,4 @@ print(allVowels(randomWords))
 # 4
 # 21
 #
-###
+
