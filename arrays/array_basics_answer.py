@@ -58,6 +58,7 @@ def countVowels(word: str) -> int:
         if word[index].lower() in vowelsList:
             counter = counter + 1
     return counter
+
 # or, alternatively...
 # def countVowels(word: str) -> int:
 #     vowelsList: list = ['a', 'e', 'i', 'o', 'u']
