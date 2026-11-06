@@ -25,22 +25,22 @@ evening = [ [True, True, True, False, True, False, False, False, True, True, Tru
             [True, True, False, True, False, True, False, True, False, True, True, True, False, False, False, True, True, False, True, False] ]
 
 # constants - also global
-FULLHOUSE: int = len(evening) * len(evening[0]) # or = 200
-MAXROWS:int = len(evening)
-MAXCOLUMNS:int = len(evening[0])
+MAXROWS:int = len(evening)            # or, 10
+MAXCOLUMNS:int = len(evening[0])      # or, 20
+FULLHOUSE: int = MAXROWS * MAXCOLUMNS # or = 200
 
 def countBooked() -> int:
-    counter: int = 0                      # to count the free seats
+    counter: int = 0                  # to count the free seats
     for row in range(MAXROWS):
         for column in range(MAXCOLUMNS):
-            if evening[row][column]:    # no need for evening[row][column] == True as evening already contains booleans
+            if evening[row][column]:    # no need for: evening[row][column] == True ...as evening already contains booleans
                 counter = counter + 1
             # endif
         # next column
     # next row
     return counter
 
-# book the seats
+# book the <seatsToBook> seats
 def book(seatsToBook: int):
     while seatsToBook > 0:
         for row in range(MAXROWS):
@@ -57,6 +57,7 @@ def book(seatsToBook: int):
     # next seats                
 
 def theatreLayout():
+    # easiest way to print the column header
     print('\n   1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0\n')
     for row in range(MAXROWS):
         print( (row+1) % 10, end='  ')
